@@ -1,0 +1,146 @@
+- check if Git is properly installed:
+	$ git --version
+
+- Configure Git (Cấu hình Git)
+	$ git config --global user.name "w3schools-test"
+	$ git config --global user.email "test@w3schools.com"
+
+- Creating Git Folder
+	$ mkdir name_folder
+	$ cd name_folder
+
+-Now that we are in the correct directory.
+ We can start by initializing Git!
+ Khi bạn đã điều hướng đến đúng thư mục, 
+ bạn có thể khởi tạo Git trên thư mục đó:
+	$ git init
+
+-Sau khi khởi tạo xong thì chúng ta thêm các file để làm việc như:
+ index.html, style.css, .js, .php,...
+
+- Will list files in the director.
+	$ ls
+
+- Check the Git status and see it is a part of repo?
+	$ git status
+
+  Files in your Git repository folder can be in one of 2 states	
+	+ Tracked : các files mà Git biết và được thêm vào repo
+	+ Untracked: các files nằm trong thư mục làm việc của bạn
+			nhưng không được thêm vào repository.
+
+- For now, we are done working with các files như  index.html, 
+	style.css, .js, .php,...
+   Vì vậy chúng ta có thể thêm chúng vào môi trường staging bằng lệnh:
+	
+	$ git add .
+
+- Chuyển từ Stage sang Commit repo của mình.
+  thêm commit giúp theo giõi tiến trình và những thay đổi khi working.
+	$ git commit -m "message"
+
+TEST - update file index.html:
+
+- $ git status --short
+		=> return:
+			?? - Untracked files
+			A - Files added to stage
+			M - Modified files
+			D - Deleted files
+	
+	$ git add .
+
+	$ git commit -m "mesage"
+	
+
+	- To view the history of commits for a repository, use log command
+	$ git log
+	
+
+
+
+-----branch-2: 
+1- Create new Branch , do not want to disturb or possibly wreck
+	the main project.
+	$ git branch hello-world-image-2
+2- Changes index.html file
+3- Add one file img-2.jpg
+4- git status 
+5- git add .
+6- git commit -m "add fileimg-2.jpg and change index.html file"
+
+
+Bây giờ hãy tưởng tượng rằng chúng ta vẫn chưa hoàn thành với hello-world-images,
+-2 nhưng chúng ta cần sửa một lỗi trên master.
+I don't want to mess with master directly, and I do not want to mess with
+hello-world-image-2
+
+1-So we create a new branch to deal with the emergency:
+$ git checkout -b emergency
+$ code .
+ Change index.html file
+2- stage the file and commit:
+$ git add .
+$ git commit -m '...'
+
+   Now we have a fix ready for master, and we need to merge the two branches
+1- We need to change to the master branch:
+	$ git checkout maste
+2- Now we merge the current branch (master) with emergency:
+	$ git merge emergency
+ Sau khi merge xong thì chúng ta có thể xóa emergency-fix branch vì
+cơ bản2 nhánh master branch and emgergency branch giống nhau:
+	$ git branch -d emergency
+
+----- Git pull from Github
+1- git fetch origin
+2- git merge origin/master
+	or use
+ $ git pull
+
+------Git push 
+1- Update file 
+2- Commit the change 
+	$ git commit -a -m "..."
+3- Git push origin
+
+------pull branch from Github
+1- Create Branch on Github
+2- $ git pull
+See all local and remote Branches:
+	$ git branch -a
+
+------Push branch to Github
+1- Create Branch 
+	$ git checkout -b update-readme
+2- Changes files, add file, add feature...
+	
+3- Add files ở bước 2 lên Staging Environment
+	$ git add .
+4- $ git commit -m "..."
+5- Push branch from local Git repo to Github:
+	$ git push origin update-readme
+
+---Merge-------
+Merge the current branch with the branch master, on origin:
+	$ git merge origin/master
+Merge the branch-1 branch with the current branch:
+	$ git merge branch-1
+
+
+-----Push-----
+
+delete branch:
+	+local branch: git branch -d name_local_branch
+	+remote branch: git push origin --delete name_remote_branch
+
+push branch from local to remote:
+	$ git push origin name_branch_need_push_to_remote
+
+-----Pull-----
+1 List all local and remote branches of the current Git
+	$ git branch -a
+2 List only remote branches of the current Git.
+	$ git branch -r
+3 Get all the change history of the origin for this branch
+	$ git fetch origin
