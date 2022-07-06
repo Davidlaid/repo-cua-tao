@@ -1,0 +1,10 @@
+1. Đổi tên ở local branch thì bạn dùng như sau
+- Nếu đang đứng trong branch đó 
+git branch -m <tên mới>
+- Nếu đang đứng từ nhánh khác
+git branch -m <tên cũ> <tên mới>
+2. Đối với nhánh remote
+- Xóa remote branch
+git push origin :<tên branch muốn xóa>
+- Tạo lại remote branch 
+git push --set-upstream origin <tên branch mới đã đổi tên ở trên>
